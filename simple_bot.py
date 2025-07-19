@@ -27,24 +27,25 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Handle /start command"""
     user = update.effective_user
     
-    welcome_text = f"""🎉 Welcome to P2P USDT Trading Bot, {user.first_name}!
+    welcome_text = f"""🎉 እንኳን ደህና መጡ ወደ P2P USDT ንግድ ቦት፣ {user.first_name}!
 
-Your secure platform for USDT trading in Ethiopia.
+ይህ ቦት በኢትዮጵያ ውስጥ የታመነ እና ቀላል የUSDT መግዛትና ሽያጭ መድረክ ነው።
 
-Commands:
-• /help - Get detailed help
-• /admin - Admin panel (admin only)
+ትዕዛዞች:
+• /help - መመሪያ መረጃ
+{f"• /admin - አስተዳዳሪ መቆጣጠሪያ (ለአስተዳዳሪ ብቻ)" if str(user.id) == ADMIN_ID else ""}
 
-How it works:
-1️⃣ Browse listings on our website
-2️⃣ Create deals and get trade codes
-3️⃣ Use this bot to confirm payments
-4️⃣ Admin releases USDT after confirmation
+እንዴት ነው የሚሰራው?
+1️⃣ ዝርዝሮችን በድህረ ገጻችን ይመልከቱ  
+2️⃣ የግዢ ወይም የሽያጭ ዝርዝር ይሙሉ እና የንግድ ኮድ ይቀበሉ  
+3️⃣ በቦቱ ውስጥ ክፍያ ያረጋግጡ  
+4️⃣ አስተዳዳሪ ኮንፋርሜሽን ካገኘ በኋላ USDT ይልቃል
 
-🔗 Platform: {FRONTEND_URL}
-💬 Support: Contact admin
+🔗 መድረክ: [ድህረ ገጽ ለመመልከት እዚህ ይጫኑ]({FRONTEND_URL})  
+💬 ድጋፍ: [@bekitesttelegram](https://t.me/bekitesttelegram)
 
-Happy trading! 🚀"""
+📌 ማሳሰቢያ፡ በግዢና ሽያጭ ላይ ምንም ወጪ የለም።"""
+
     
     keyboard = [
         [InlineKeyboardButton("📋 View Listings", url=f"{FRONTEND_URL}/listings")],
